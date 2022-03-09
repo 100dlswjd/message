@@ -27,6 +27,10 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self._key_check_thread = Thread(target = self.key_check_proc)
         self._key_check_thread.start()
 
+    def closeEvent(self, event) -> None:
+        self._exit_event.set()
+        return super().closeEvent(event)
+
     def key_check_proc(self):
         while self._exit_event.is_set() == False:
             if self.lineEdit.text():
