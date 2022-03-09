@@ -24,17 +24,17 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self._sock.errorOccurred.connect(self.error_handler)
         self._sock.connected.connect(self.connected_handler)
 
-        self._exit_event = Event()
+        """self._exit_event = Event()
         self._exit_event.clear()
         self._key_check_thread = Thread(target = self.key_check_proc)
-        self._key_check_thread.start()
+        self._key_check_thread.start()"""
 
-    def key_check_proc(self):
+    """def key_check_proc(self):
         while self._exit_event.is_set() == False:
             if self.lineEdit.text():
                 if win32api.GetAsyncKeyState(win32con.VK_RETURN) & 0x8000:
                     self.button_handler()
-                    time.sleep(0.1)
+                    time.sleep(0.1)"""
                     
 
     @Slot()
